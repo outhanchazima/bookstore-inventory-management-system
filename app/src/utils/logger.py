@@ -1,4 +1,4 @@
-    import logging.config
+import logging.config
 
 LOGGING_APPLICATION_CONF = {
     'version': 1,  # required
