@@ -9,7 +9,7 @@ Bookstore is an API for managing a book store inventory.
 * **Database**: [PostgreSQL](https://www.postgresql.org/)
 * **ORM**: [SQLAlchemy](https://www.sqlalchemy.org/)
 * **REST API**: [Flask](http://flask.pocoo.org/)
-## Running with Docker
+<!-- ## Running with Docker
 We are using Docker which means you don't need to install any of the dependencies on your local machine (except for docker itself). If you are already familiar with Docker and the technologies listed above, you can clone the repository to you local machine and bring up the database and back-end together with:
 
 ```docker-compose build```
@@ -38,7 +38,7 @@ It will take a fair bit of time the first time you do it, subsequently it will b
 
 6. Launch the containers using ```docker-compose up``` - you should see messages like "Starting bookstore-api ... done". You can then navigate to the application in your browser at ```http://localhost:5000/api/v1/docs```. you won't see anything if you navigate to localhost:5000 in your browser) 
 
-7. The first time you run the app, you may need to run the **migrations** to ensure that all the tables are created in the database. While the app is running (after following the previous step), run the following in **another terminal/command prompt**: ```docker-compose run web python ./api/run.py db upgrade --directory api/migrations```
+7. The first time you run the app, you may need to run the **migrations** to ensure that all the tables are created in the database. While the app is running (after following the previous step), run the following in **another terminal/command prompt**: ```docker-compose run web python ./api/run.py db upgrade --directory api/migrations``` -->
 
 
 ## Getting Started (Detailed without Docker)
