@@ -17,7 +17,7 @@ class Auth:
                     response_object = {
                         'status': 'success',
                         'message': 'Successfully logged in.',
-                        'Authorization': auth_token.decode()
+                        'Authorization': auth_token
                     }
                     return response_object, 200
             else:
@@ -41,7 +41,7 @@ class Auth:
         this method will logout currently lkogged out user
         """
         if data:
-            auth_token = data.split(" ")[1]
+            auth_token = data
         else:
             auth_token = ''
         if auth_token:

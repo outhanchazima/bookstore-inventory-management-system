@@ -28,5 +28,3 @@ api = Api(
 
 api.add_namespace(auth_ns, path='/auth')
 api.add_namespace(user_ns, path='/user')
-
-migrate = Migrate(app, db)

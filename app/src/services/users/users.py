@@ -17,7 +17,8 @@ def saveNewUser(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
             password=data['password'],
             registered_on=datetime.datetime.utcnow()
         )
-        User.save(new_user)
+        db.session.add(new_user)
+        db.session.commit()
         return generateToken(new_user)
     else:
         return EMAIL_IN_USE
@@ -38,7 +39,7 @@ def generateToken(user: User) -> Tuple[Dict[str, str], int]:
         response_object = {
             'status': 'success',
             'message': 'Successfully registered.',
-            'Authorization': authToken.decode()
+            'Authorization': authToken
         }
         return response_object, 201
     except Exception as e:

@@ -1,4 +1,3 @@
-from app.src.utils.base_model import BaseModel
 from app.src import db, flask_bcrypt
 import datetime
 import jwt
@@ -8,9 +7,9 @@ from app.src.models.blacklist import BlacklistToken
 
 KEY = Config.SECRET_KEY
 
-class User(BaseModel, db.Model):
+class User(db.Model):
     """ User Model for storing user related details """
-    __tablename__ = "user"
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
@@ -19,14 +18,14 @@ class User(BaseModel, db.Model):
     public_id = db.Column(db.String(100), unique=True)
     username = db.Column(db.String(50), unique=True)
     password_hash = db.Column(db.String(100))
-
-    @property
-    def password(self):
-        raise AttributeError('password: write-only field')
-
-    @password.setter
-    def password(self, password):
+    
+    def __init__(self, email, registered_on, public_id, username, password) -> None:
+        self.email = email
+        self.registered_on = registered_on
+        self.public_id = public_id
+        self.username = username
         self.password_hash = flask_bcrypt.generate_password_hash(password).decode('utf-8')
+        
 
     def checkPassword(self, password: str) -> bool:
         return flask_bcrypt.check_password_hash(self.password_hash, password)
