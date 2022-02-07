@@ -4,6 +4,7 @@ import datetime
 import jwt
 from typing import Union
 from app.src.config import Config
+from app.src.models.blacklist import BlacklistToken
 
 KEY = Config.SECRET_KEY
 
