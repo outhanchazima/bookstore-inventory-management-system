@@ -1,8 +1,4 @@
-from cgitb import reset
 import unittest
-
-from app.src import db
-from app.src.models.blacklist import BlacklistToken
 import json
 from app.tests.base import BaseTestCase
 
