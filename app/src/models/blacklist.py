@@ -2,7 +2,7 @@ from app.src.utils.base_model import BaseModel
 from app.src import db
 import datetime
 
-class BlacklistToken(BaseModel):
+class BlacklistToken(BaseModel, db.Model):
     """
     Token Model for storing JWT tokens
     """

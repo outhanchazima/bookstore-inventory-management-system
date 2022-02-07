@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv() 
+load_dotenv()
 
 # uncomment the line below for postgres database url from environment variable
 postgres_local_base = os.environ['DATABASE_URL']
@@ -14,6 +14,7 @@ class Config:
     DEBUG = False
     # Swagger
     RESTX_MASK_SWAGGER = False
+
 
 class DevelopmentConfig(Config):
     DEBUG = True

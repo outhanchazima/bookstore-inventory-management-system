@@ -8,7 +8,7 @@ from app.src.models.blacklist import BlacklistToken
 
 KEY = Config.SECRET_KEY
 
-class User(BaseModel):
+class User(BaseModel, db.Model):
     """ User Model for storing user related details """
     __tablename__ = "user"
 

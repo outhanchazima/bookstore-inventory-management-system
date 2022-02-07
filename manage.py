@@ -1,9 +1,8 @@
-import os
 from flask.cli import FlaskGroup
 
-from app.src import create_app
+from app import app, blueprint
 
-app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
+app.register_blueprint(blueprint)
 
 app.app_context().push()
 

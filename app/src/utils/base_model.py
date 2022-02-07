@@ -1,6 +1,8 @@
 from app.src import db
 
-class BaseModel(db.Model):
+
+class BaseModel():
+
     _abstract__ = True
 
     @classmethod
@@ -11,6 +13,6 @@ class BaseModel(db.Model):
 
     # TODO: should not delete from the database
     @classmethod
-    def delete(self) -> None:
-        db.session.delete(self)
+    def delete(cls) -> None:
+        db.session.delete(cls)
         db.session.commit()
