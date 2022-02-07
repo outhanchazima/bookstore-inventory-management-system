@@ -1,4 +1,3 @@
-from http.cookies import BaseCookie
 from app.src import db
 from app.src.models.author import Author
 from app.tests.base import BaseTestCase
