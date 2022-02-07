@@ -6,3 +6,4 @@ BAD_CREDENTIALS = (
 FORBIDDEN = ({'message': 'Access to this resource is forbidden'}, 403)
 TOO_MANY_REQUESTS = ({'message': 'Too many requests'}, 429)
 BLACKLIST_FAILED = ({"message": 'failed to blacklist'}, 200)
+ERROR_OCCURED = ({"message":"Some error occurred. Please try again."}, 401)
