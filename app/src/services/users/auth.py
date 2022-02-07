@@ -7,12 +7,12 @@ from app.src.utils.errors import UNAUTHORIZED
 class Auth:
 
     @staticmethod
-    def login_user(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
+    def loginUser(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
         try:
             # fetch the user data
             user = User.query.filter_by(email=data.get('email')).first()
-            if user and user.check_password(data.get('password')):
-                auth_token = User.encode_auth_token(user.id)
+            if user and user.checkPassword(data.get('password')):
+                auth_token = User.encodeAuthToken(user.id)
                 if auth_token:
                     response_object = {
                         'status': 'success',
@@ -36,13 +36,16 @@ class Auth:
             return response_object, 500
 
     @staticmethod
-    def logout_user(data: str) -> Tuple[Dict[str, str], int]:
+    def logoutUser(data: str) -> Tuple[Dict[str, str], int]:
+        """
+        this method will logout currently lkogged out user
+        """
         if data:
             auth_token = data.split(" ")[1]
         else:
             auth_token = ''
         if auth_token:
-            resp = User.decode_auth_token(auth_token)
+            resp = User.decodeAuthToken(auth_token)
             if not isinstance(resp, str):
                 # mark the token as blacklisted
                 return saveToken(token=auth_token)
@@ -60,11 +63,11 @@ class Auth:
             return response_object, 403
 
     @staticmethod
-    def get_logged_in_user(new_request):
+    def getLoggedInUser(new_request):
         # get the auth token
         auth_token = new_request.headers.get('Authorization')
         if auth_token:
-            resp = User.decode_auth_token(auth_token)
+            resp = User.decodeAuthToken(auth_token)
             if not isinstance(resp, str):
                 user = User.query.filter_by(id=resp).first()
                 response_object = {
