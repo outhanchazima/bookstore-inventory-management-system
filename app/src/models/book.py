@@ -1,7 +1,7 @@
 import datetime
 from app.src import db
 
-class Books(db.Model):
+class Book(db.Model):
     __tablename__ = 'books'
 
     id: int = db.Column(db.Integer, primary_key=True)
@@ -11,5 +11,5 @@ class Books(db.Model):
     description: str = db.Column(db.String(1000), nullable=False)
 
     # relatiionship with authors
-    author_id: int = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
+    author_id: int = db.Column(db.Integer, db.ForeignKey('author.id'), nullable=False)
    
