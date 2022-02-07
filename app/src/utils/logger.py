@@ -32,7 +32,7 @@ class Logger:
     This class contains methods to use standard loggers
     '''
 
-    def get_logger(self):
+    def getLogger(self):
         '''This method sets the configuration for the logger
         Returns:
             [Logger] --  An instance of Logging with the right handlers set

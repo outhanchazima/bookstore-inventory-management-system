@@ -28,11 +28,11 @@ class User(BaseModel):
     def password(self, password):
         self.password_hash = flask_bcrypt.generate_password_hash(password).decode('utf-8')
 
-    def check_password(self, password: str) -> bool:
+    def checkPassword(self, password: str) -> bool:
         return flask_bcrypt.check_password_hash(self.password_hash, password)
 
     @staticmethod
-    def encode_auth_token(user_id: int) -> bytes:
+    def encodeAuthToken(user_id: int) -> bytes:
         """
         Generates the Auth Token
         :return: string
@@ -52,7 +52,7 @@ class User(BaseModel):
             return e
 
     @staticmethod
-    def decode_auth_token(auth_token: str) -> Union[str, int]:
+    def decodeAuthToken(auth_token: str) -> Union[str, int]:
         """
         Decodes the auth token
         :param auth_token:
