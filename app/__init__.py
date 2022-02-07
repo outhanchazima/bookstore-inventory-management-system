@@ -1,6 +1,9 @@
 from app.src import app, db
+from app.src.models.author import Author
+from app.src.models.book import Book
+from app.src.models.user import User
+from app.src.models.stocks import Stocks, StockHistory
 
-from flask_migrate import Migrate
 from flask_restx import Api
 from flask import Blueprint
 
@@ -28,3 +31,4 @@ api = Api(
 
 api.add_namespace(auth_ns, path='/auth')
 api.add_namespace(user_ns, path='/user')
+

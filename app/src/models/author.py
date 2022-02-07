@@ -7,7 +7,7 @@ class Author(db.Model):
     id: int = db.Column(db.Integer, primary_key=True, autoincrement=True)
     first_name: str = db.Column(db.String(64), nullable=False)
     last_name: str = db.Column(db.String(64), nullable=False)
-    email: str = db.Column(db.String|(50), nullable=False, unique=True)
+    email: str = db.Column(db.String(50), nullable=False, unique=True)
     date_of_birth: datetime = db.Column(db.DateTime, nullable=True)
     created_on: datetime = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     

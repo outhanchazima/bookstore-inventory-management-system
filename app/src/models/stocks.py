@@ -23,8 +23,8 @@ class Stocks(db.Model, BaseModel):
     book_id: int = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
     items_available: int = db.Column(db.Integer, nullable=False)
     status: str = db.Column(Enum(StockStatus), nullable=False, default=StockStatus.GOOD)
-    initialized_on: datetime = db.Column(db.Datetime, nullable=False, default=datetime.datetime.utcnow())
-    updated_on: datetime = db.Column(db.Datetime, nullable=False, default=datetime.datetime.utcnow())
+    initialized_on: datetime = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow())
+    updated_on: datetime = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow())
     stock_history: list = db.relationship('StockHistory', backref='stocks', lazy=True)
 
     @classmethod
@@ -42,7 +42,7 @@ class StockHistory(db.Model, BaseModel):
     stock_id: int = db.Column(db.Integer, db.ForeignKey('stocks.id'), nullable=False)
     stock_event: str = db.Column(Enum(StockEvent), nullable=False)
     quantity: int = db.Column(db.Integer, nullable=False)
-    created_on: datetime = db.Column(db.Datetime, nullable=False, default=datetime.datetime.utcnow())
+    created_on: datetime = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow())
 
     @classmethod
     def getByStockId(cls, stock_id: int) -> 'StockHistory':
