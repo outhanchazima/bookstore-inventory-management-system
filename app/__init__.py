@@ -1,3 +1,4 @@
+from importlib.resources import path
 from app.src import app, db
 from app.src.models.author import Author
 from app.src.models.book import Book
@@ -10,6 +11,7 @@ from flask import Blueprint
 
 from app.src.controllers.auth_resource import api as auth_ns
 from app.src.controllers.user_resource import api as user_ns
+from app.src.controllers.author_resource import api as author_ns
 
 blueprint = Blueprint('api', __name__)
 authorizations = {
@@ -31,4 +33,5 @@ api = Api(
 
 api.add_namespace(auth_ns, path='/auth')
 api.add_namespace(user_ns, path='/user')
+api.add_namespace(author_ns, path='/author')
 

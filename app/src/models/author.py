@@ -23,3 +23,7 @@ class Author(db.Model):
     @classmethod
     def findByAuthorID(cls, id: int) -> "Author":
         return cls.query.filter_by(id=id).first()
+
+    @classmethod
+    def getAllAuthors(cls) -> "Author":
+        return cls.query.all()
