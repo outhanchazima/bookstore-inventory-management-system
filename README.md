@@ -44,7 +44,7 @@ It will take a fair bit of time the first time you do it, subsequently it will b
 ## Getting Started (Detailed without Docker)
 1. Make sure you have the following installed on your machine:
 * Git: [Windows](https://git-scm.com/download/win), [Mac](https://git-scm.com/download/mac). (Linux users should install using their system's package manager)
-* Python 3.8.5 and above
+* Python 3.8.10
 * Postgres Database 13 and above.
 * make sure you have pip and virtualenv installed.
 
@@ -105,4 +105,9 @@ python3 manage.py run
 Run the application: PRODUCTION Mode
 ```
 gunicorn manage:app --worker-class gevent --bind 0.0.0.0:5000 --log-level info
+```
+#### To run tests
+Run the command in alterative to and before you run the application run below command 
+```
+python -m pytest -v
 ```

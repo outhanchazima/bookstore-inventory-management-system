@@ -10,10 +10,11 @@ install:
 	python3 -m venv venv; \
 	. venv/bin/activate; \
 	pip install -r requirements.txt;
+	pip install pytest
 
 tests:
 	. venv/bin/activate; \
-	python manage.py test
+	python -m pytest -v
 
 run:
 	. venv/bin/activate; \
